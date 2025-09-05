@@ -19,8 +19,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build Backend
-        run: mvn -B clean install --file user-service/pom.xml
+      - name: Build UserService
+        run: mvn -B clean install --file user-service/user-service/pom.xml
+      - name: Build NotificationService
+        run: mvn -B clean install --file notification-service/notification-service/pom.xml
+      - name: Build AnalyticsService
+        run: mvn -B clean install --file analytics-service/analytics-service/pom.xml
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
